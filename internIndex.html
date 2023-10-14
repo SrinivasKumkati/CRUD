@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML To Do List | Intenship Project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-dark border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="/assets/logo.png" alt="..." height="36"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/about.html">List Items</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/contact.html">Contact Us</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+          <!-- <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button> -->
+        </form>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+    <h2 class="text-center">TODOs List</h2>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemsModal">
+      Add List Items
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addItemsModal" tabindex="-1" aria-labelledby="addItemsModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addItemsModalLabel">Add List Item</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Add an item to the list">
+            </div>
+            <div class="form-group my-2">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" placeholder="Add description" rows="3"></textarea>
+            </div>
+            <div class="form-group my-2">
+              <label for="responsible">Responsible</label>
+              <input type="text" class="form-control" id="responsible" placeholder="Add the person responsible for the task">
+            </div>
+            <div class="form-group my-2">
+              <label for="taskTime">E.T.A.</label>
+              <input type="datetime-local" class="form-control" id="taskTime" placeholder="Click to add the time">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="addTask()">Add Item</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+    
+    <div id="items" class="my-4">
+        <h2>Your Items</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">SNo</th>
+                    <th scope="col">Item Title</th>
+                    <th scope="col">Item Description</th>
+                    <th scope="col">Responsible</th>
+                    <th scope="col">ETA</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Get some Coffee</td>
+                    <td>You need coffee as you are a coder</td>
+                    <td>Baba</td>
+                    <td>12:33</td>
+                    <td><i class="bi bi-check-circle-fill"></i><i class="bi bi-pencil-square"></i></td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Get some Tea</td>
+                    <td>You need tea</td>
+                    <td>Srinivas</td>
+                    <td>12:32</td>
+                    <td><i class="bi bi-check-circle-fill"></i><i class="bi bi-pencil-square"></i></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <script>
+    function addTask() {
+      title = document.getElementById('title').value;
+      description = document.getElementById('description').value;
+      responsible = document.getElementById('responsible').value;
+      taskTime = document.getElementById('taskTime').value;
+      console.log(title, description, responsible, taskTime);
+      $('#addItemsModal').modal('hide');
+      taskObject = {
+        title: title,
+        description: description,
+        responsible: responsible,
+        taskTime: taskTime
+      }
+      console.log(taskObject);
+      var storageObjectArr = [];
+      var storageObject = localStorage.getItem('taskStorage');
+      if ((storageObject != null) || (storageObject != undefined) || (storageObject != '')) {
+        storageObjectArr = JSON.parse(storageObject);
+      }
+      storageObjectArr.push(taskObject);
+      localStorage.setItem('taskStorage', JSON.stringify(storageObjectArr));
+      writingOnPageFromStorage();
+    }
+
+    function writingOnPageFromStorage() {
+      var storageObject = localStorage.getItem('taskStorage');
+      if ((storageObject != null) || (storageObject != undefined) || (storageObject != '')) {
+        if(storageObject == '[]'){
+          document.getElementById('items').innerHTML = '<h2>Your Items</h2><h3>No Items to show</h3>';
+        }else{
+          document.getElementById('items').innerHTML = '<h2>Your Items</h2>';
+          storageObjectArr = JSON.parse(storageObject);
+          console.log(storageObjectArr);
+          var html = '';
+          storageObjectArr.forEach(function (element, index) {
+            html += `<tr>
+                      <th scope="row">${index + 1}</th>
+                      <td>${element.title}</td>
+                      <td>${element.description}</td>
+                      <td>${element.responsible}</td>
+                      <td>${element.taskTime}</td>
+                      <td><i class="bi bi-check-circle-fill" onclick="markingAsDone(`+index+`)"></i><i class="bi bi-pencil-square" onclick="editTask(`+index+`)"></i></td>
+                  </tr>`;
+          });
+          document.getElementById('items').innerHTML = html;
+        }
+      }
+    }
+
+    function markingAsDone(index){
+      var storageObject = localStorage.getItem('taskStorage');
+      if ((storageObject != null) || (storageObject != undefined) || (storageObject != '')) {
+        storageObjectArr = JSON.parse(storageObject);
+        storageObjectArr.splice(index, 1);
+        localStorage.setItem('taskStorage', JSON.stringify(storageObjectArr));
+        writingOnPageFromStorage();
+      }
+    }
+
+    function editTask(index){
+      var storageObject = localStorage.getItem('taskStorage');
+      if ((storageObject != null) || (storageObject != undefined) || (storageObject != '')) {
+        storageObjectArr = JSON.parse(storageObject);
+        document.getElementById('title').value = storageObjectArr[index].title;
+        document.getElementById('description').value = storageObjectArr[index].description;
+        document.getElementById('responsible').value = storageObjectArr[index].responsible;
+        document.getElementById('taskTime').value = storageObjectArr[index].taskTime;
+        $('#addItemsModal').modal('show');
+        storageObjectArr.splice(index, 1);
+        localStorage.setItem('taskStorage', JSON.stringify(storageObjectArr));
+        writingOnPageFromStorage();
+      }
+    }
+
+  </script>
+</body>
+
+</html>
